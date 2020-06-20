@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.example.finalproject.adapter.EventListAdapter;
 
@@ -22,8 +23,14 @@ public class EventListActivity extends AppCompatActivity {
 
         initRecyclerView();
 
-        eventViewModel.fetchAreaCode();
-        eventViewModel.areaLiveData.observe(this, areaList -> eventListAdapter.updateItems(areaList));
+//        eventViewModel.fetchAreaCode();
+//        eventViewModel.areaLiveData.observe(this, areaList -> eventListAdapter.updateItems(areaList));
+        eventViewModel.fetchFestival();
+        eventViewModel.festivalLiveData.observe(this, items -> eventListAdapter.updateItems(items));
+        eventViewModel.festivalRegionLiveData.observe(this, region -> {
+            TextView textView = findViewById(R.id.event_list_location_name_textview);
+            textView.setText(region);
+        });
     }
 
     private void initRecyclerView() {
