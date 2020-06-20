@@ -18,4 +18,7 @@ public interface TourismService {
     // 행사정보 조회
     @GET("searchFestival" + SERVICE_KEY)
     Call<EventInfo> fetchFestivalInfo(@Query("MobileOS") String mobileOS, @Query("MobileApp") String mobileApp, @Query("_type") String type, @Query("areaCode") int areaCode);
+
+    // 지역기반 행사정보 조회
+
 }
