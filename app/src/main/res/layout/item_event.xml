@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/item_event_poster_imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/item_vertical_guideline"
+        android:contentDescription="@string/imageview_content_description" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/item_vertical_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@android:dimen/thumbnail_width"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/item_horizontal_guideline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="120dp"/>
+
+    <TextView
+        android:id="@+id/item_event_name_textview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/item_vertical_guideline"
+        app:layout_constraintBottom_toBottomOf="@id/item_horizontal_guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="행사이름행사이름행사이름행사이름행사이름행사이름행사이름행사이름행사이름행사이름행사이름행사이름행사이름"/>
+
+    <TextView
+        android:id="@+id/item_event_location_textview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="@id/item_horizontal_guideline"
+        app:layout_constraintStart_toStartOf="@id/item_vertical_guideline"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="행사위치행사위치행사위치행사위치행사위치행사위치행사위치행사위치행사위치행사위치행사위치행사위치행사위치행사위치행사위치행사위치행사위치행사위치행사위치"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
