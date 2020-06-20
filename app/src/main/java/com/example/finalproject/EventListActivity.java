@@ -17,7 +17,6 @@ public class EventListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_event_list);
 
         initRecyclerView();
-
     }
 
     private void initRecyclerView() {

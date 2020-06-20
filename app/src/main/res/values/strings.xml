@@ -1,5 +1,4 @@
 <resources>
-    <!-- App String -->
     <string name="app_name">FinalProject</string>
     <string name="imageview_content_description">Image</string>
 </resources>
