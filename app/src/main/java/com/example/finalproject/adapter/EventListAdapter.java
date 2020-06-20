@@ -11,13 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject.R;
-import com.example.finalproject.model.Area;
+import com.example.finalproject.model.area.Area;
+import com.example.finalproject.model.area.Item;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.ViewHolder> {
     private Context context;
-    private ArrayList<Area> areaList = new ArrayList<>();
+    private List<Item> areaList = new ArrayList<>();
 
     public EventListAdapter(Context context) {
         this.context = context;
@@ -47,14 +49,16 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
     @Override
     public void onBindViewHolder(@NonNull EventListAdapter.ViewHolder holder, int position) {
         holder.eventName.setText(areaList.get(position).getName());
+        holder.eventPoster.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_launcher_background));
+        holder.eventLocation.setText("Default");
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return areaList.size();
     }
 
-    public void updateItems(ArrayList<Area> areas) {
+    public void updateItems(List<Item> areas) {
         areaList = areas;
         notifyDataSetChanged();
     }
