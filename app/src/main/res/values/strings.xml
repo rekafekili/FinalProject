@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">FinalProject</string>
-    <string name="imageview_content_description">Fail to Download Image</string>
+    <string name="imageview_content_description">Image</string>
 </resources>

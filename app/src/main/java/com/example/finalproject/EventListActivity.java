@@ -1,6 +1,7 @@
 package com.example.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -15,8 +16,12 @@ public class EventListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_list);
 
-        eventListRecyclerView = findViewById(R.id.event_list_recyclerview);
+        initRecyclerView();
+    }
 
+    private void initRecyclerView() {
+        eventListRecyclerView = findViewById(R.id.event_list_recyclerview);
+        eventListRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         EventListAdapter eventListAdapter = new EventListAdapter(this);
         eventListRecyclerView.setAdapter(eventListAdapter);
     }

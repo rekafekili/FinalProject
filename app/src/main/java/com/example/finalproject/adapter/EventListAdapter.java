@@ -11,9 +11,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject.R;
+import com.example.finalproject.model.Area;
+
+import java.util.ArrayList;
 
 public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.ViewHolder> {
     private Context context;
+    private ArrayList<Area> areaList = new ArrayList<>();
 
     public EventListAdapter(Context context) {
         this.context = context;
@@ -42,7 +46,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull EventListAdapter.ViewHolder holder, int position) {
-
+        holder.eventName.setText(areaList.get(position).getName());
     }
 
     @Override
@@ -50,5 +54,8 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
         return 0;
     }
 
-
+    public void updateItems(ArrayList<Area> areas) {
+        areaList = areas;
+        notifyDataSetChanged();
+    }
 }
