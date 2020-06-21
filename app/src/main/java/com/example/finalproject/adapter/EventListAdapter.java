@@ -1,6 +1,7 @@
 package com.example.finalproject.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,16 +11,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.finalproject.R;
-import com.example.finalproject.model.area.Area;
-import com.example.finalproject.model.area.Item;
+import com.example.finalproject.model.festival.Item;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.ViewHolder> {
     private Context context;
-    private List<Item> areaList = new ArrayList<>();
+    private List<Item> festivalList = new ArrayList<>();
 
     public EventListAdapter(Context context) {
         this.context = context;
@@ -48,18 +49,20 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull EventListAdapter.ViewHolder holder, int position) {
-        holder.eventName.setText(areaList.get(position).getName());
-        holder.eventPoster.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_launcher_background));
-        holder.eventLocation.setText("Default");
+        Item item = festivalList.get(position);
+        holder.eventName.setText(item.getTitle());
+        Log.d("jsontest", "onBindViewHolder: " + item.getFirstimage());
+        Glide.with(context).load(item.getFirstimage()).centerCrop().into(holder.eventPoster);
+        holder.eventLocation.setText(item.getAddr1());
     }
 
     @Override
     public int getItemCount() {
-        return areaList.size();
+        return festivalList.size();
     }
 
     public void updateItems(List<Item> areas) {
-        areaList = areas;
+        festivalList = areas;
         notifyDataSetChanged();
     }
 }
