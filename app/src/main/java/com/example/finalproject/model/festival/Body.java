@@ -45,5 +45,4 @@ public class Body {
     public void setTotalCount(int totalCount) {
         this.totalCount = totalCount;
     }
-
 }

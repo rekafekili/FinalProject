@@ -9,4 +9,5 @@ public class URLConstant {
     public static final String MOBILE_OS = "AND";
     public static final String MOBILE_APP = "FinalProject";
     public static final String TYPE = "json";
+    public static final int CONTENT_TYPE_ID = 15; // 15 = 행사
 }

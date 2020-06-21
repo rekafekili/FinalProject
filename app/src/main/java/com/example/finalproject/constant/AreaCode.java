@@ -39,6 +39,16 @@ public enum AreaCode {
         return drawableRes;
     }
 
+    public static String getNameByCode(long code) {
+        int areaCode = (int) code;
+        for(AreaCode tmp : AreaCode.values()) {
+            if(areaCode == tmp.getAreaCode()) {
+                return tmp.getAreaName();
+            }
+        }
+        return null;
+    }
+
     AreaCode(int areaCode, String areaName, @DrawableRes int drawableRes) {
         this.areaCode = areaCode;
         this.areaName = areaName;

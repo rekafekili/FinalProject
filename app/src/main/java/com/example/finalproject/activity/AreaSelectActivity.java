@@ -36,6 +36,7 @@ public class AreaSelectActivity extends AppCompatActivity implements AreaListAda
     public void onItemClicked(View view, int position) {
         AreaCode selectedArea = areaCodeList[position];
         Intent intent = new Intent(this, EventListActivity.class);
+        intent.putExtra("SERVICE", "AREA");
         intent.putExtra("AREA_NAME", selectedArea.getAreaName());
         intent.putExtra("AREA_CODE", selectedArea.getAreaCode());
         startActivity(intent);
