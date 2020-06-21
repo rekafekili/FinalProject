@@ -60,7 +60,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
         Glide.with(context).load(item.getFirstimage())
                 .error(R.drawable.noimage).centerCrop().into(holder.eventPoster);
         holder.eventLocation.setText(item.getAddr1());
-
+        holder.eventCount.setText(String.valueOf(item.getReadcount()));
     }
 
     @Override
