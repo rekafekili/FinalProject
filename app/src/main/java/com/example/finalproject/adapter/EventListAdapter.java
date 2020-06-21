@@ -57,8 +57,10 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
         Item item = festivalList.get(position);
         holder.eventName.setText(item.getTitle());
         Log.d("jsontest", "onBindViewHolder: " + item.getFirstimage());
-        Glide.with(context).load(item.getFirstimage()).centerCrop().into(holder.eventPoster);
+        Glide.with(context).load(item.getFirstimage())
+                .error(R.drawable.noimage).centerCrop().into(holder.eventPoster);
         holder.eventLocation.setText(item.getAddr1());
+
     }
 
     @Override
