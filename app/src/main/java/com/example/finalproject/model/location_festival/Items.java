@@ -5,16 +5,14 @@ import java.util.List;
 import com.squareup.moshi.Json;
 
 public class Items {
-
     @Json(name = "item")
-    private List<Item> item = null;
+    private List<LocationFestivalItem> locationFestivalItem = null;
 
-    public List<Item> getItem() {
-        return item;
+    public List<LocationFestivalItem> getLocationFestivalItem() {
+        return locationFestivalItem;
     }
 
-    public void setItem(List<Item> item) {
-        this.item = item;
+    public void setLocationFestivalItem(List<LocationFestivalItem> locationFestivalItem) {
+        this.locationFestivalItem = locationFestivalItem;
     }
-
 }

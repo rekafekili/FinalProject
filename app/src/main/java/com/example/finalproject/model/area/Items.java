@@ -7,14 +7,14 @@ import com.squareup.moshi.Json;
 public class Items {
 
     @Json(name = "item")
-    private List<Item> item = null;
+    private List<AreaItem> areaItem = null;
 
-    public List<Item> getItem() {
-        return item;
+    public List<AreaItem> getAreaItem() {
+        return areaItem;
     }
 
-    public void setItem(List<Item> item) {
-        this.item = item;
+    public void setAreaItem(List<AreaItem> areaItem) {
+        this.areaItem = areaItem;
     }
 
 }

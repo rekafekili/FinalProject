@@ -3,7 +3,7 @@ package com.example.finalproject.model.area;
 
 import com.squareup.moshi.Json;
 
-public class Item {
+public class AreaItem {
 
     @Json(name = "code")
     private Integer code;

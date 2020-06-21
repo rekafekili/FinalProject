@@ -4,7 +4,7 @@ package com.example.finalproject.model.festival;
 
 import com.squareup.moshi.Json;
 
-public class Item {
+public class FestivalItem {
 
     @Json(name = "addr1")
     private String addr1;
