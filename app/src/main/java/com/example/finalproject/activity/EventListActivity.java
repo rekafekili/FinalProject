@@ -113,10 +113,18 @@ public class EventListActivity extends AppCompatActivity implements EventListAda
     public void onItemClick(View v, int position) {
         Intent intent = new Intent(this, EventDetailActivity.class);
 
-        FestivalItem festivalItem = festivalItemList.get(position);
-        intent.putExtra("CONTENT_ID", festivalItem.getContentid());
-        intent.putExtra("CONTENT_TITLE", festivalItem.getTitle());
-        intent.putExtra("CONTENT_IMAGE", festivalItem.getFirstimage());
+        if(service.equals("AREA")) {
+            FestivalItem festivalItem = festivalItemList.get(position);
+            intent.putExtra("CONTENT_ID", festivalItem.getContentid());
+            intent.putExtra("CONTENT_TITLE", festivalItem.getTitle());
+            intent.putExtra("CONTENT_IMAGE", festivalItem.getFirstimage());
+        } else {
+            LocationFestivalItem locationFestivalItem = locationFestivalItemList.get(position);
+            intent.putExtra("CONTENT_ID", locationFestivalItem.getContentid());
+            intent.putExtra("CONTENT_TITLE", locationFestivalItem.getTitle());
+            intent.putExtra("CONTENT_IMAGE", locationFestivalItem.getFirstimage());
+        }
+
         startActivity(intent);
     }
 }
