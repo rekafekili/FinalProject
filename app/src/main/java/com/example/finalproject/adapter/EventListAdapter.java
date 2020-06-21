@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject.R;
-import com.example.finalproject.model.area.Area;
 import com.example.finalproject.model.area.Item;
 
 import java.util.ArrayList;
@@ -29,13 +28,18 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
         ImageView eventPoster;
         TextView eventName;
         TextView eventLocation;
+        TextView eventCount;
+        TextView eventDistance;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             eventPoster = itemView.findViewById(R.id.item_event_poster_imageview);
             eventName = itemView.findViewById(R.id.item_event_name_textview);
-            eventLocation = itemView.findViewById(R.id.item_event_location_textview);
+            eventLocation = itemView.findViewById(R.id.item_event_period_textview);
+            eventCount = itemView.findViewById(R.id.item_event_viewcount_textview);
+            eventDistance = itemView.findViewById(R.id.item_event_distance_textview);
+
         }
     }
 
@@ -51,6 +55,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
         holder.eventName.setText(areaList.get(position).getName());
         holder.eventPoster.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_launcher_background));
         holder.eventLocation.setText("Default");
+        
     }
 
     @Override
