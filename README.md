@@ -3,6 +3,10 @@
 - 지역별, 내 주변 행사 목록 앱
 - 참여 인원 : 조성윤, 채유라, 김용준
 - Java
-- MVVM
+- MVVM + LiveData
 - ViewBinding
 - Open API : 국문 관광정보 서비스
+- Retrofit
+- Glide
+- Ted Permission
+- Google Location and Activity Recognition
