@@ -30,13 +30,18 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
         ImageView eventPoster;
         TextView eventName;
         TextView eventLocation;
+        TextView eventCount;
+        TextView eventDistance;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             eventPoster = itemView.findViewById(R.id.item_event_poster_imageview);
             eventName = itemView.findViewById(R.id.item_event_name_textview);
-            eventLocation = itemView.findViewById(R.id.item_event_location_textview);
+            eventLocation = itemView.findViewById(R.id.item_event_period_textview);
+            eventCount = itemView.findViewById(R.id.item_event_viewcount_textview);
+            eventDistance = itemView.findViewById(R.id.item_event_distance_textview);
+
         }
     }
 
