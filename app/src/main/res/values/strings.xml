@@ -1,4 +1,6 @@
 <resources>
-    <string name="app_name">FinalProject</string>
+    <string name="app_name">ALL FESTIVAL</string>
     <string name="imageview_content_description">Image</string>
+    <string name="please_wait">Please, Wait...</string>
+    <string name="event_period_format">%s.%s.%s ~ %s.%s.%s</string>
 </resources>

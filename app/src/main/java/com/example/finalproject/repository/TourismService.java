@@ -2,6 +2,7 @@ package com.example.finalproject.repository;
 
 import com.example.finalproject.model.area.Area;
 import com.example.finalproject.model.area.Response;
+import com.example.finalproject.model.detail_info.DetailInfo;
 import com.example.finalproject.model.festival.EventInfo;
 
 import retrofit2.Call;
@@ -17,8 +18,9 @@ public interface TourismService {
 
     // 행사정보 조회
     @GET("searchFestival" + SERVICE_KEY)
-    Call<EventInfo> fetchFestivalInfo(@Query("MobileOS") String mobileOS, @Query("MobileApp") String mobileApp, @Query("_type") String type, @Query("areaCode") int areaCode);
+    Call<EventInfo> fetchFestival(@Query("MobileOS") String mobileOS, @Query("MobileApp") String mobileApp, @Query("_type") String type, @Query("areaCode") int areaCode, @Query("eventStartDate") String startDate);
 
-    // 지역기반 행사정보 조회
-
+    // 상세 정보 조회
+    @GET("detailIntro" + SERVICE_KEY)
+    Call<DetailInfo> fetchFestivalDetail(@Query("MobileOS") String mobileOS, @Query("MobileApp") String mobileApp, @Query("_type") String type, @Query("contentId") long contentId, @Query("contentTypeId") int contentTypeId);
 }
