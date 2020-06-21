@@ -13,19 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.AreaSelectActivity"></activity>
+        <activity android:name=".activity.AreaSelectActivity"/>
         <activity
             android:name=".activity.CategorySelectActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.EventListActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".activity.EventDetailActivity" />
         <activity
             android:name=".activity.SplashActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

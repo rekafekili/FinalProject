@@ -1,6 +1,7 @@
 package com.example.finalproject.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,11 +31,16 @@ public class EventListActivity extends AppCompatActivity implements EventListAda
 
         eventViewModel = new ViewModelProvider(this).get(EventViewModel.class);
 
-        initRecyclerView();
+        String selectedAreaName = getIntent().getStringExtra("AREA_NAME");
+        int selectedAreaCode = getIntent().getIntExtra("AREA_CODE", -1);
+        if (selectedAreaCode == -1 || selectedAreaName == null || selectedAreaName.isEmpty())
+            return;
 
-        eventViewModel.fetchFestival();
+        initView(selectedAreaName);
+
+        eventViewModel.fetchFestivalAreaCode(selectedAreaCode);
         eventViewModel.isFetchingLiveData.observe(this, isFetching -> {
-            if(isFetching) {
+            if (isFetching) {
                 findViewById(R.id.event_list_progressbar).setVisibility(View.VISIBLE);
             } else {
                 findViewById(R.id.event_list_progressbar).setVisibility(View.GONE);
@@ -45,13 +51,15 @@ public class EventListActivity extends AppCompatActivity implements EventListAda
             festivalItemList.addAll(items);
             eventListAdapter.updateItems(items);
         });
-        eventViewModel.festivalRegionLiveData.observe(this, region -> {
-            TextView textView = findViewById(R.id.event_list_location_name_textview);
-            textView.setText(region);
-        });
     }
 
-    private void initRecyclerView() {
+    private void initView(String selectedAreaName) {
+        // Toolbar 설정
+        Toolbar toolbar = findViewById(R.id.event_list_toolbar);
+        TextView toolbarText = toolbar.findViewById(R.id.toolbar_title_textview);
+        toolbarText.setText(selectedAreaName);
+
+        // RecyclerView 초기화
         RecyclerView eventListRecyclerView = findViewById(R.id.event_list_recyclerview);
         eventListRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         eventListAdapter = new EventListAdapter(this);

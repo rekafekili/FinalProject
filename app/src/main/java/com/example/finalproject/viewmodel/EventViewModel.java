@@ -27,7 +27,6 @@ import static com.example.finalproject.constant.URLConstant.MOBILE_OS;
 import static com.example.finalproject.constant.URLConstant.TYPE;
 
 public class EventViewModel extends ViewModel {
-//    public MutableLiveData<List<Item>> areaLiveData = new MutableLiveData<>();
     public MutableLiveData<List<FestivalItem>> festivalLiveData = new MutableLiveData<>();
     public MutableLiveData<DetailItem> detailLiveData = new MutableLiveData<>();
     public MutableLiveData<String> festivalRegionLiveData = new MutableLiveData<>();
@@ -40,14 +39,14 @@ public class EventViewModel extends ViewModel {
 
     private TourismService service = retrofit.create(TourismService.class);
 
-    public void fetchFestival() {
+    public void fetchFestivalAreaCode(int areaCode) {
         isFetchingLiveData.postValue(true);
 
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
         String now = format.format(date);
 
-        service.fetchFestival(MOBILE_OS, MOBILE_APP, TYPE, 34, now).clone().enqueue(new Callback<EventInfo>() {
+        service.fetchFestival(MOBILE_OS, MOBILE_APP, TYPE, areaCode, now).clone().enqueue(new Callback<EventInfo>() {
             @Override
             public void onResponse(Call<EventInfo> call, Response<EventInfo> response) {
                 festivalLiveData.postValue(response.body().getResponse().getBody().getItems().getFestivalItem());

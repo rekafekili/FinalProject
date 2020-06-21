@@ -15,7 +15,7 @@ public class CategorySelectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select);
 
         findViewById(R.id.select_region_textview).setOnClickListener(view -> {
-            Intent intent = new Intent(this, EventListActivity.class);
+            Intent intent = new Intent(this, AreaSelectActivity.class);
             startActivity(intent);
         });
     }
