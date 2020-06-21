@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -34,6 +33,13 @@ public class EventListActivity extends AppCompatActivity implements EventListAda
         initRecyclerView();
 
         eventViewModel.fetchFestival();
+        eventViewModel.isFetchingLiveData.observe(this, isFetching -> {
+            if(isFetching) {
+                findViewById(R.id.event_list_progressbar).setVisibility(View.VISIBLE);
+            } else {
+                findViewById(R.id.event_list_progressbar).setVisibility(View.GONE);
+            }
+        });
         eventViewModel.festivalLiveData.observe(this, items -> {
             festivalItemList = new ArrayList<>();
             festivalItemList.addAll(items);
@@ -56,8 +62,11 @@ public class EventListActivity extends AppCompatActivity implements EventListAda
     @Override
     public void onItemClick(View v, int position) {
         Intent intent = new Intent(this, EventDetailActivity.class);
-        Log.d("jsontest", "onItemClick: " + festivalItemList.get(position).getContentid());
-        intent.putExtra("CONTENT_ID", festivalItemList.get(position).getContentid());
+
+        FestivalItem festivalItem = festivalItemList.get(position);
+        intent.putExtra("CONTENT_ID", festivalItem.getContentid());
+        intent.putExtra("CONTENT_TITLE", festivalItem.getTitle());
+        intent.putExtra("CONTENT_IMAGE", festivalItem.getFirstimage());
         startActivity(intent);
     }
 }

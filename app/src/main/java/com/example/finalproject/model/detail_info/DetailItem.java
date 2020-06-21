@@ -33,6 +33,8 @@ public class DetailItem {
     private String sponsor1;
     @Json(name = "sponsor1tel")
     private String sponsor1tel;
+    @Json(name = "sponsor2")
+    private String sponsor2;
     @Json(name = "sponsor2tel")
     private String sponsor2tel;
     @Json(name = "subevent")
@@ -150,6 +152,14 @@ public class DetailItem {
 
     public void setSponsor1tel(String sponsor1tel) {
         this.sponsor1tel = sponsor1tel;
+    }
+
+    public String getSponsor2() {
+        return sponsor2;
+    }
+
+    public void setSponsor2(String sponsor2) {
+        this.sponsor2 = sponsor2;
     }
 
     public String getSponsor2tel() {
