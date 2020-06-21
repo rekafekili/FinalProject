@@ -19,7 +19,7 @@ public class SplashActivity extends AppCompatActivity {
 
         Handler handler = new Handler();
         handler.postDelayed(() -> {
-            startActivity(new Intent(getApplication(), EventListActivity.class));
+            startActivity(new Intent(getApplication(), CategorySelectActivity.class));
             /* 스플래시 액티비티를 스택에서 제거. */
             SplashActivity.this.finish();
         }, SPLASH_DISPLAY_TIME);

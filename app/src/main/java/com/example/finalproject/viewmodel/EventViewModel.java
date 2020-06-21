@@ -40,20 +40,6 @@ public class EventViewModel extends ViewModel {
 
     private TourismService service = retrofit.create(TourismService.class);
 
-//    public void fetchAreaCode() {
-//        service.fetchAreaCode(MOBILE_OS, MOBILE_APP, TYPE).clone().enqueue(new Callback<Area>() {
-//            @Override
-//            public void onResponse(Call<Area> call, Response<Area> response) {
-//                Log.d("jsontest", "onResponse: " + response.body().getResponse().getBody().getItems().getItem());
-//                areaLiveData.postValue(response.body().getResponse().getBody().getItems().getItem());
-//            }
-//
-//            @Override
-//            public void onFailure(Call<Area> call, Throwable t) {
-//
-//            }
-//        });
-//    }
     public void fetchFestival() {
         isFetchingLiveData.postValue(true);
 
