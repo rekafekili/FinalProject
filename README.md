@@ -10,3 +10,4 @@
 - Glide
 - Ted Permission
 - Google Location and Activity Recognition
+- Naver Maps API
