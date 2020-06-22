@@ -55,8 +55,8 @@ public class EventDetailActivity extends AppCompatActivity implements OnMapReady
         double latitude = getIntent().getDoubleExtra("LATITUDE", 0.0);
         double longitude = getIntent().getDoubleExtra("LONGITUDE", 0.0);
 
-        Log.d("TEST", "onCreate: " + latitude + longitude);
-        markerPosition = new LatLng(37.5816246, 126.9748959);
+        Log.d("TEST", "onCreate: " + latitude + " : " + longitude);
+        markerPosition = new LatLng(latitude, longitude);
         marker.setPosition(markerPosition);
         eventPlaceMap.getMapAsync(this);
 
@@ -66,7 +66,7 @@ public class EventDetailActivity extends AppCompatActivity implements OnMapReady
     // 네이버 맵 지도객체를 받는 콜백 메소드
     @Override
     public void onMapReady(@NonNull NaverMap naverMap) {
-        naverMap.setCameraPosition(new CameraPosition(markerPosition, 12.0));
+        naverMap.setCameraPosition(new CameraPosition(markerPosition, 14.5));
         marker.setMap(naverMap);
     }
 

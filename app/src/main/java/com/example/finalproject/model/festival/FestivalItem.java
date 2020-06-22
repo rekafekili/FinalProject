@@ -33,7 +33,7 @@ public class FestivalItem {
     @Json(name = "mapx")
     private Double mapx;
     @Json(name = "mapy")
-    private String mapy;
+    private Double mapy;
     @Json(name = "mlevel")
     private Long mlevel;
     @Json(name = "modifiedtime")
@@ -153,11 +153,11 @@ public class FestivalItem {
         this.mapx = mapx;
     }
 
-    public String getMapy() {
+    public Double getMapy() {
         return mapy;
     }
 
-    public void setMapy(String mapy) {
+    public void setMapy(Double mapy) {
         this.mapy = mapy;
     }
 

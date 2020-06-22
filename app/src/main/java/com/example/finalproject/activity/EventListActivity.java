@@ -120,7 +120,7 @@ public class EventListActivity extends AppCompatActivity implements EventListAda
             intent.putExtra("CONTENT_IMAGE", festivalItem.getFirstimage());
             intent.putExtra("LATITUDE", festivalItem.getMapy());
             intent.putExtra("LONGITUDE", festivalItem.getMapx());
-            Log.d(TAG, "onItemClick: " + festivalItem.getMapy() + festivalItem.getMapx());
+            Log.d(TAG, "onItemClick: " + festivalItem.getMapy() + " : " + festivalItem.getMapx());
         } else {
             LocationFestivalItem locationFestivalItem = locationFestivalItemList.get(position);
             intent.putExtra("CONTENT_ID", locationFestivalItem.getContentid());
