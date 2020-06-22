@@ -261,6 +261,12 @@
 
             </LinearLayout>
 
+            <com.naver.maps.map.MapView
+                android:id="@+id/detail_naver_mapview"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="3dp"/>
+
         </LinearLayout>
     </ScrollView>
 

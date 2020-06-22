@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <!-- Naver Maps Client ID -->
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="6cctb8fgz0"/>
+
+        <!-- Activities -->
         <activity android:name=".activity.AreaSelectActivity"/>
         <activity
             android:name=".activity.CategorySelectActivity"
