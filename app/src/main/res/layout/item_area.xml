@@ -6,11 +6,14 @@
     android:layout_height="wrap_content"
     android:layout_marginVertical="10dp"
     android:layout_marginHorizontal="20dp"
-    android:orientation="horizontal">
+    android:background="@drawable/location_coner"
+    android:orientation="horizontal"
+    android:layout_margin="10dp">
     
     <ImageView
         android:id="@+id/item_area_image_imageview"
         android:layout_width="150dp"
+        android:layout_margin="5dp"
         android:layout_height="120dp"
         tools:ignore="ContentDescription" />
 
