@@ -10,4 +10,11 @@ public class URLConstant {
     public static final String MOBILE_APP = "FinalProject";
     public static final String TYPE = "json";
     public static final int CONTENT_TYPE_ID = 15; // 15 = 행사
+
+    // 정렬
+    public static final char TITLE_ARRANGE = 'A';
+    public static final char COUNT_ARRANGE = 'B';
+    public static final char MODIFIED_ARRANGE = 'C';
+    public static final char CREATED_ARRANGE = 'D';
+    public static final char DISTANCE_ARRANGE = 'E';
 }

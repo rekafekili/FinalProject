@@ -14,18 +14,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activity.LocationEventListActivity"></activity>
         <!-- Naver Maps Client ID -->
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
-            android:value="6cctb8fgz0"/>
-
-        <!-- Activities -->
-        <activity android:name=".activity.AreaSelectActivity"/>
+            android:value="6cctb8fgz0" /> <!-- Activities -->
+        <activity android:name=".activity.AreaSelectActivity" />
         <activity
             android:name=".activity.CategorySelectActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.EventListActivity"
+            android:name=".activity.AreaEventListActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".activity.EventDetailActivity" />
         <activity

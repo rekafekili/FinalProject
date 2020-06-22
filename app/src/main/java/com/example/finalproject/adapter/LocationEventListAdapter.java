@@ -13,26 +13,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.finalproject.R;
-import com.example.finalproject.model.festival.FestivalItem;
 import com.example.finalproject.model.location_festival.LocationFestivalItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.ViewHolder> {
+public class LocationEventListAdapter extends RecyclerView.Adapter<LocationEventListAdapter.ViewHolder> {
     private Context context;
-    private List<FestivalItem> areaFestivalList = new ArrayList<>();
     private List<LocationFestivalItem> locationFestivalItemList = new ArrayList<>();
     private OnItemClickListener onItemClickListener;
-    private String service;
 
     public interface OnItemClickListener {
         void onItemClick(View v, int position);
     }
 
-    public EventListAdapter(Context context, String service) {
+    public LocationEventListAdapter(Context context) {
         this.context = context;
-        this.service = service;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -58,15 +54,6 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
             });
         }
 
-        public void bindFestivalItem(FestivalItem festivalItem) {
-            eventName.setText(festivalItem.getTitle());
-            Glide.with(context).load(festivalItem.getFirstimage())
-                    .error(R.drawable.noimage).centerCrop().into(eventPoster);
-            eventPeriod.setText(makePeriodString(festivalItem.getEventstartdate().toString(), festivalItem.getEventenddate().toString()));
-            eventDistance.setText(festivalItem.getAddr1());
-            eventCount.setText(String.valueOf(festivalItem.getReadcount()));
-        }
-
         @SuppressLint("SetTextI18n")
         public void bindLocationFestivalItem(LocationFestivalItem locationFestivalItem) {
             eventName.setText(locationFestivalItem.getTitle());
@@ -83,32 +70,19 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
 
     @NonNull
     @Override
-    public EventListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public LocationEventListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_event, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EventListAdapter.ViewHolder holder, int position) {
-        if (service.equals("AREA")) {
-            holder.bindFestivalItem(areaFestivalList.get(position));
-        } else {
-            holder.bindLocationFestivalItem(locationFestivalItemList.get(position));
-        }
+    public void onBindViewHolder(@NonNull LocationEventListAdapter.ViewHolder holder, int position) {
+        holder.bindLocationFestivalItem(locationFestivalItemList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        if (service.equals("AREA")) {
-            return areaFestivalList.size();
-        } else {
-            return locationFestivalItemList.size();
-        }
-    }
-
-    public void updateFestivalItems(List<FestivalItem> areas) {
-        areaFestivalList = areas;
-        notifyDataSetChanged();
+        return locationFestivalItemList.size();
     }
 
     public void updateLocationFestivalItems(List<LocationFestivalItem> locationFestivalItems) {

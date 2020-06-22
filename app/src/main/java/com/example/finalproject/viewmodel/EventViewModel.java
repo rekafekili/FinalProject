@@ -14,6 +14,7 @@ import com.example.finalproject.model.location_festival.LocationFestivalItem;
 import com.example.finalproject.repository.TourismService;
 
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -42,14 +43,14 @@ public class EventViewModel extends ViewModel {
 
     private TourismService service = retrofit.create(TourismService.class);
 
-    public void fetchFestivalByAreaCode(int areaCode) {
+    public void fetchFestivalByAreaCode(int areaCode, char arrange) {
         isFetchingLiveData.postValue(true);
 
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
         String now = format.format(date);
 
-        service.fetchFestivalByAreaCode(MOBILE_OS, MOBILE_APP, TYPE, areaCode, now, 1).clone().enqueue(new Callback<EventInfo>() {
+        service.fetchFestivalByAreaCode(MOBILE_OS, MOBILE_APP, TYPE, areaCode, now, arrange, 1).clone().enqueue(new Callback<EventInfo>() {
             @Override
             public void onResponse(Call<EventInfo> call, Response<EventInfo> response) {
                 festivalLiveData.postValue(response.body().getResponse().getBody().getItems().getFestivalItem());
@@ -58,15 +59,16 @@ public class EventViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<EventInfo> call, Throwable t) {
+                festivalLiveData.postValue(Collections.emptyList());
                 processFailure(t);
             }
         });
     }
 
-    public void fetchFestivalByLocation(double mapX, double mapY) {
+    public void fetchFestivalByLocation(double mapX, double mapY, char arrange) {
         isFetchingLiveData.postValue(true);
 
-        service.fetchFestivalByLocation(MOBILE_OS, MOBILE_APP, TYPE, mapX, mapY, 2000, CONTENT_TYPE_ID, 1).clone().enqueue(new Callback<LocationBasedFestival>() {
+        service.fetchFestivalByLocation(MOBILE_OS, MOBILE_APP, TYPE, mapX, mapY, 2000, CONTENT_TYPE_ID, arrange, 1).clone().enqueue(new Callback<LocationBasedFestival>() {
             @Override
             public void onResponse(Call<LocationBasedFestival> call, Response<LocationBasedFestival> response) {
                 locationFestivalLiveData.postValue(response.body().getResponse().getBody().getItems().getLocationFestivalItem());
@@ -75,6 +77,7 @@ public class EventViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<LocationBasedFestival> call, Throwable t) {
+                locationFestivalLiveData.postValue(Collections.emptyList());
                 processFailure(t);
             }
         });

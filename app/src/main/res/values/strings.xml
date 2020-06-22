@@ -6,4 +6,5 @@
     <string name="select_region">지역별 행사</string>
     <string name="select_location">내 주변 행사</string>
     <string name="event_dist_format">%d m</string>
+    <string name="no_image_text">대표 이미지가 없습니다.</string>
 </resources>

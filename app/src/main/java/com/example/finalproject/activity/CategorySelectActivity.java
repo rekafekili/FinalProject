@@ -49,8 +49,7 @@ public class CategorySelectActivity extends AppCompatActivity implements Permiss
                 })
                 .addOnSuccessListener(this, location -> {
                     if(location != null){
-                        Intent intent = new Intent(this, EventListActivity.class);
-                        intent.putExtra("SERVICE", "LOCATION");
+                        Intent intent = new Intent(this, LocationEventListActivity.class);
                         intent.putExtra("MAP_X", location.getLongitude());
                         intent.putExtra("MAP_Y", location.getLatitude());
                         startActivity(intent);

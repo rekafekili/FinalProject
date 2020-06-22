@@ -18,6 +18,7 @@ public interface TourismService {
                                             @Query("_type") String type,
                                             @Query("areaCode") int areaCode,
                                             @Query("eventStartDate") String startDate,
+                                            @Query("arrange") char arrange,
                                             @Query("pageNo") int pageNo);
 
     // 상세 정보 조회
@@ -37,5 +38,6 @@ public interface TourismService {
                                                         @Query("mapY") double mapY,
                                                         @Query("radius") int radius,
                                                         @Query("contentTypeId") int contentTypeId,
+                                                        @Query("arrange") char arrange,
                                                         @Query("pageNo") int pageNo);
 }
