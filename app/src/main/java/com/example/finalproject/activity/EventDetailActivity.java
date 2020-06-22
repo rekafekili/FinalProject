@@ -48,8 +48,11 @@ public class EventDetailActivity extends AppCompatActivity implements OnMapReady
         binding.detailTitleTextview.setText(title);
 
         String url = getIntent().getStringExtra("CONTENT_IMAGE");
-        if (url != null) {
+        if(url != null) {
             Glide.with(this).load(url).fitCenter().into(binding.detailPosterImageview);
+        } else {
+            binding.detailPosterImageview.setVisibility(View.GONE);
+            binding.detailNoPosterTextview.setVisibility(View.VISIBLE);
         }
 
         double latitude = getIntent().getDoubleExtra("LATITUDE", 0.0);
